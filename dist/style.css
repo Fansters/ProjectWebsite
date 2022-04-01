@@ -94,21 +94,20 @@ button:hover,
   width: 45px;
 }
 
-.header__hamburger > span {
+.header__menuToggle {
   display: block;
-  width: 22px;
-  height: 3px;
-  background: #676F54;
-}
-
-.header__hamburger > span:not(:last-child) {
-  margin-bottom: 5px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
 }
 
 .header div .header__links {
   padding: 0 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
   color: #676F54;
   font-size: 1rem;
   -webkit-transition: all 0.2s ease-in;
@@ -126,15 +125,113 @@ button:hover,
 .header div a {
   font-size: 1rem;
   position: relative;
+  font-family: "Bungee", cursive;
 }
 
 .header div a:not(:last-child) {
   margin-right: 32px;
 }
 
+.header__menuToggle a {
+  text-decoration: none;
+  color: #676F54;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.header__menuToggle a:hover {
+  color: #7ea17d;
+}
+
+.header__menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+.header__menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #676F54;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.header__menuToggle span:first-child(2) {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+.header__menuToggle span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+.header__menuToggle input:checked ~ span {
+  opacity: 1;
+  -webkit-transform: rotate(45deg) translate(-2px, -1px);
+          transform: rotate(45deg) translate(-2px, -1px);
+  background: #676F54;
+}
+
+.header__menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.header__menuToggle input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(0, -1px);
+          transform: rotate(-45deg) translate(0, -1px);
+}
+
 .mobile-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
+}
+
+.menu {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  height: 87.5vh;
+  margin: 37px 0 0px -353px;
+  padding: 75px 0px 50px;
+  background: #D7F2BA;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.header__menuToggle input:checked ~ ul {
+  -webkit-transform: none;
+          transform: none;
 }
 
 .hidden {
@@ -153,101 +250,7 @@ button:hover,
   border-radius: 10px;
   background: linear-gradient(20deg, #757C64, #82ae95);
   opacity: 0;
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
-
-section {
-  height: 90vh;
-}
-
-section .lp__heading {
-  height: 25%;
-  text-align: center;
-}
-
-section .lp__heading h1 {
-  font-family: "Permanent Marker", cursive;
-  margin: 0;
-  padding: 25px;
-  font-size: 3.5rem;
-}
-
-section .lp__heading h2 {
-  margin: 0;
-  padding: 25px;
-  font-family: "Staatliches", cursive;
-  font-size: 2.5rem;
-}
-
-section .lp__choices {
-  background: url(/imges/lpBackground.jpg) no-repeat center;
-  height: 75%;
-  background-size: cover;
-}
-
-section .blur {
-  height: 100%;
-  padding-top: 150px;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-}
-
-section .inner__choices {
-  max-width: 1400px;
-  height: 100%;
-  margin: auto;
-  opacity: .88;
-}
-
-section .choice {
-  display: block;
-  width: 25%;
-  margin: 0 10px 0 10px;
-  text-align: center;
-  color: #676F54;
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
-  border-radius: 20px 20px 0 0;
-  background: #D7F2BA url(/imges/burger.png) no-repeat center bottom;
-  background-size: 75%;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-  mix-blend-mode: multiply;
-}
-
-section .choice p {
-  font-family: "Bungee", cursive;
-  font-size: 2.4rem;
-  -webkit-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-  padding-top: 30px;
-  -webkit-transition: 0.3s all ease-in;
-  transition: 0.3s all ease-in;
-}
-
-section .choice:hover {
-  background-color: #7ea17d;
-}
-
-section .choice:hover p {
-  font-size: 2.6rem;
-}
-
-section .choice__a {
-  background-image: url(/imges/burger.png);
-}
-
-section .choice__b {
-  background-image: url(/imges/pizza.png);
-}
-
-section .choice__c {
-  background-image: url(/imges/sushi.png);
-}
-
-section .choice__d {
-  background-image: url(/imges/burrito.png);
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 /*# sourceMappingURL=style.css.map */
