@@ -1,0 +1,66 @@
+html {
+	font-size: 100%;
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	font-size: 1.125rem;
+}
+a,
+a:visited,
+a:hover {
+	text-decoration: none;
+}
+
+// Flexbox
+.flex {
+	display: flex;
+
+	&-jc-sb {
+		justify-content: space-between;
+	}
+	&-jc-c {
+		justify-content: center;
+	}
+	&-ai-c {
+		align-items: center;
+	}
+}
+
+button,
+.button {
+	background: linear-gradient(20deg, $unknown, $button);
+	padding: 0.875rem 2.875rem;
+   font-size: 1rem;
+	border-radius: 30px;
+   color: white;
+	border: none;
+	cursor: pointer;
+   opacity: .85;
+   transition: all .15s ease-in;
+   
+   &:hover{
+      opacity: 1;
+   }
+}
+
+// hide for tablet and mobile
+.hide-for-mobile {
+   @include breakpoint-down(medium){
+      display: none;
+   }
+}
+// hide from desktop widths
+.hide-for-desktop {
+   @include breakpoint-up(large){
+      display: none;
+   }
+}
