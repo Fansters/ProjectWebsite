@@ -6,42 +6,70 @@
 		height: 100%;
 		padding: 1.0625rem 1.5rem;
 	}
+	// Hamburger open styles
+   &.open {
+		.overlay {
+         display: block;
+			// animation: fade-in 0.5s ease-in forwards;
+		}
+		.header__hamburger {
+			> span:first-child {
+				transform: rotate(42.5deg);
+				width: 24px;
+				height: 3.5px;
+			}
+			> span:nth-child(2) {
+				opacity: 0;
+			}
+			> span:last-child {
+				transform: rotate(-42.5deg);
+				width: 24px;
+				height: 3.5px;
+			}
+		}
+	}
+	
+	.overlay {
+		// display: none;
+      // opacity: 0;
+		// z-index: -1;
+		position: fixed;
+		top: 6.1875rem;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient($backgroundColor, rgba(0, 0, 0, 0.2));
+		// height: 100vh;
+	}
+
 	&__logo {
 		img {
 			width: 45px;
 		}
 	}
-	// &__burgerMenu{
-
-	//    // width: 50px;
-	//    // height: 50px;
-	// }
-	// &__hamburger {
-	// 	> span {
-	// 		display: block;
-	// 		width: 22px;
-	// 		height: 3px;
-	// 		background: $textColor;
-	// 		&:not(:last-child) {
-	// 			margin-bottom: 5px;
-	// 		}
-	// 	}
-	// }
-	&__menuToggle {
-		display: block;
-		position: relative;
-		top: 0px;
-		left: 0px;
-		z-index: 1;
-		-webkit-user-select: none;
-		user-select: none;
+	&__burgerMenu {
+		width: 50px;
+		height: 50px;
+	}
+	&__hamburger {
+		> span {
+			display: block;
+			width: 22px;
+			height: 3px;
+			background: $textColor;
+			transform-origin: left;
+			transition: all 0.3s ease-in-out;
+			&:not(:last-child) {
+				margin-bottom: 5px;
+			}
+		}
 	}
 
 	div {
 		.header__links {
 			padding: 0 10px;
 			color: $textColor;
-			font-size: 1rem;
+			font-size: $font-med;
 			transition: all 0.2s ease-in;
 
 			&:hover {
@@ -54,7 +82,7 @@
 		}
 
 		a {
-			font-size: 1rem;
+			font-size: $font-med;
 			position: relative;
 			font-family: "Bungee", cursive;
 
@@ -65,92 +93,20 @@
 	}
 }
 
-.header__menuToggle a {
-	text-decoration: none;
-	color: $textColor;
-	transition: color 0.2s ease;
-
-	&:hover {
-		color: $textHover;
-	}
-}
-.header__menuToggle input {
-	display: block;
-	width: 40px;
-	height: 32px;
-	position: absolute;
-	top: -7px;
-	left: -5px;
-	cursor: pointer;
-	opacity: 0; /* hide this */
-	z-index: 2; /* and place it over the hamburger */
-	-webkit-touch-callout: none;
-}
-.header__menuToggle span {
-	display: block;
-	width: 33px;
-	height: 4px;
-	margin-bottom: 5px;
-	position: relative;
-	background: $textColor;
-	border-radius: 3px;
-	z-index: 1;
-	transform-origin: 4px 0px;
-	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-		opacity 0.55s ease;
-}
-.header__menuToggle span:first-child(2) {
-	transform-origin: 0% 0%;
-}
-.header__menuToggle span:nth-last-child(2) {
-	transform-origin: 0% 100%;
-}
-.header__menuToggle input:checked ~ span {
-	opacity: 1;
-	transform: rotate(45deg) translate(-2px, -1px);
-	background: $textColor;
-}
-.header__menuToggle input:checked ~ span:nth-last-child(3) {
-	opacity: 0;
-	transform: rotate(0deg) scale(0.2, 0.2);
-}
-.header__menuToggle input:checked ~ span:nth-last-child(2) {
-	transform: rotate(-45deg) translate(0, -1px);
-}
 .mobile-container {
 	max-width: 1200px;
 	margin: auto;
 }
-.menu {
-	position: absolute;
-   text-align: center;
-	width: 100vw;
-   height:87.5vh;
-	margin: 37px 0 0px -353px;
-	padding: 75px 0px 50px;
-	background: $backgroundColor;
-	list-style-type: none;
-	-webkit-font-smoothing: antialiased;
-	/* to stop flickering of text in safari */
-	transform-origin: 0% 0%;
-	transform: translate(100%, 0);
-	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-.header__menuToggle input:checked ~ ul {
-	transform: none;
-}
-.hidden {
-	display: none;
-}
+
 .hide-for-mobile a::before {
 	content: "";
 	position: absolute;
 	width: 100%;
 	display: block;
-	height: 5px;
+	height: 4px;
 	left: 0;
 	right: 0;
-	bottom: -2.48rem;
+	bottom: -1.7rem;
 	border-radius: 10px;
 	background: linear-gradient(20deg, $unknown, $button);
 	opacity: 0;

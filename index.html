@@ -15,6 +15,7 @@
 
 	<body>
 		<header class="header">
+			<div id="overlay"></div>
 			<nav class="navigation flex flex-jc-sb flex-ai-c mobile-container">
 				<a href="#" class="header__logo"> <img src="imges/foodLogo.png" alt="logo" /></a>
 				<div class="hide-for-mobile">
@@ -23,14 +24,14 @@
 					><a href="#" class="header__links">Percentage</a>
 				</div>
 				<button type="button" class="hide-for-mobile">Request food</button>
-				<!-- <div class="header__burgerMenu hide-for-desktop">
-					<a href="#" class="header__hamburger">
-						<span></span>
-						<span></span>
-						<span></span>
-					</a>
-				</div> -->
-				<div class="header__menuToggle">
+				<!-- <div class="header__burgerMenu hide-for-desktop"> -->
+				<a id="btnBurger" href="#" class="header__hamburger hide-for-desktop">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
+				<!-- </div> -->
+				<!-- <div class="header__menuToggle">
 					<input type="checkbox" />
 					<span></span>
 					<span></span>
@@ -42,9 +43,10 @@
 						<a href="#"><li>Lists</li></a>
 						<a href="#"><li>Percentage</li></a>
 					</ul>
-				</div>
+				</div> -->
 			</nav>
 		</header>
+
 		<script src="app/js/script.js"></script>
 	</body>
 </html>

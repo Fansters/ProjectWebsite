@@ -1,9 +1,17 @@
 
-// const burgerMenu = document.querySelector('.header__burgerMenu');
-// const burgerBtn = document.querySelector('.header__hamburger');
-// const closeBtn = document.querySelector('.header__close');
+const btnBurger = document.getElementById('btnBurger');
+const overlay = document.getElementById('overlay');
+const header = document.querySelector('.header');
 
-// burgerMenu.addEventListener('click', function () {
-//    burgerBtn.classList.toggle('hidden');
-//    closeBtn.classList.toggle('hidden');
-// })
+
+btnBurger.addEventListener('click', function () {
+   // header.classList.toggle('open')
+   // overlay.classList.toggle('overlay')
+   if (header.classList.contains('open')) {
+      header.classList.remove('open')
+      // overlay.classList.remove('overlay')
+   } else {
+      header.classList.add('open');
+      // overlay.classList.add('overlay')
+   }
+});
