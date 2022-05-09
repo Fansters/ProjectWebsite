@@ -1,17 +1,18 @@
 
 const btnBurger = document.getElementById('btnBurger');
-const overlay = document.getElementById('overlay');
+const overlay = document.querySelector('.overlay');
 const header = document.querySelector('.header');
 
 
 btnBurger.addEventListener('click', function () {
    // header.classList.toggle('open')
-   // overlay.classList.toggle('overlay')
-   if (header.classList.contains('open')) {
+   if (header.classList.contains('open')) { // close
       header.classList.remove('open')
-      // overlay.classList.remove('overlay')
-   } else {
+      overlay.classList.remove('fade-in')
+      overlay.classList.add('fade-out')
+   } else { // open
       header.classList.add('open');
-      // overlay.classList.add('overlay')
+      overlay.classList.remove('fade-out')
+      overlay.classList.add('fade-in')
    }
 });
