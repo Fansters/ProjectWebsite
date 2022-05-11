@@ -3,13 +3,14 @@
 	height: 100px;
 	border-bottom: 1px solid rgba(128, 128, 128, 0.471);
 	nav {
-		height: 100%;
-		padding: 1.0625rem 1.5rem;
+		// height: 100%;
+      padding-top: 1.0625rem;
+      padding-bottom: 1.0625rem ;
 	}
 	// Hamburger open styles
 	&.open {
 		.overlay {
-         z-index: 2;
+			z-index: 2;
 			display: block;
 		}
 		.header__hamburger {
@@ -30,7 +31,7 @@
 	}
 
 	.overlay {
-      opacity: 0;
+		opacity: 0;
 		position: fixed;
 		top: 6.1875rem;
 		left: 0;
@@ -79,14 +80,29 @@
 			}
 		}
 
-		a {
+		#link {
 			font-size: $font-med;
 			position: relative;
 			font-family: "Bungee", cursive;
-
+         
 			&:not(:last-child) {
 				margin-right: 32px;
 			}
+		}
+	}
+	&__menu {
+		background: $white;
+      margin: .3125rem 1.5rem;
+      padding: 1.625rem;
+      border-radius: .3125rem;
+		a {
+			display: block;
+         font-size: $font-med;
+      font-family: "Bungee", cursive;
+			text-align: center;
+			color: $textColor;
+			margin: 0;
+			padding: 0.625rem;
 		}
 	}
 }
@@ -104,7 +120,7 @@
 	height: 4px;
 	left: 0;
 	right: 0;
-	bottom: -1.7rem;
+	bottom: -1.6rem;
 	border-radius: 10px;
 	background: linear-gradient(20deg, $unknown, $button);
 	opacity: 0;

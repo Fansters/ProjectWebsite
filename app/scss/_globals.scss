@@ -20,6 +20,12 @@ a:hover {
 	text-decoration: none;
 }
 
+//Spacing
+.container{
+   padding-left:  1.5rem;
+   padding-right:  1.5rem;
+}
+
 // Flexbox
 .flex {
 	display: flex;
@@ -39,28 +45,28 @@ button,
 .button {
 	background: linear-gradient(20deg, $unknown, $button);
 	padding: 0.875rem 2.875rem;
-   font-size: 1rem;
+	font-size: 1rem;
 	border-radius: 30px;
-   color: white;
+	color: white;
 	border: none;
 	cursor: pointer;
-   opacity: .85;
-   transition: all .15s ease-in;
-   
-   &:hover{
-      opacity: 1;
-   }
+	opacity: 0.85;
+	transition: all 0.15s ease-in;
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
 // hide for tablet and mobile
 .hide-for-mobile {
-   @include breakpoint-down(medium){
-      display: none;
-   }
+	@include breakpoint-down(medium) {
+		display: none;
+	}
 }
 // hide from desktop widths
 .hide-for-desktop {
-   @include breakpoint-up(large){
-      display: none;
-   }
+	@include breakpoint-up(large) {
+		display: none;
+	}
 }

@@ -92,6 +92,11 @@ a:hover {
   text-decoration: none;
 }
 
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -125,9 +130,9 @@ button,
   color: white;
   border: none;
   cursor: pointer;
-  opacity: .85;
-  -webkit-transition: all .15s ease-in;
-  transition: all .15s ease-in;
+  opacity: 0.85;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
 }
 
 button:hover,
@@ -154,8 +159,8 @@ button:hover,
 }
 
 .header nav {
-  height: 100%;
-  padding: 1.0625rem 1.5rem;
+  padding-top: 1.0625rem;
+  padding-bottom: 1.0625rem;
 }
 
 .header.open .overlay {
@@ -232,14 +237,31 @@ button:hover,
   opacity: 1;
 }
 
-.header div a {
+.header div #link {
   font-size: 1.125rem;
   position: relative;
   font-family: "Bungee", cursive;
 }
 
-.header div a:not(:last-child) {
+.header div #link:not(:last-child) {
   margin-right: 32px;
+}
+
+.header__menu {
+  background: white;
+  margin: .3125rem 1.5rem;
+  padding: 1.625rem;
+  border-radius: .3125rem;
+}
+
+.header__menu a {
+  display: block;
+  font-size: 1.125rem;
+  font-family: "Bungee", cursive;
+  text-align: center;
+  color: #676F54;
+  margin: 0;
+  padding: 0.625rem;
 }
 
 .mobile-container {
@@ -255,7 +277,7 @@ button:hover,
   height: 4px;
   left: 0;
   right: 0;
-  bottom: -1.7rem;
+  bottom: -1.6rem;
   border-radius: 10px;
   background: linear-gradient(20deg, #757C64, #82ae95);
   opacity: 0;
